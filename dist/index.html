@@ -18,6 +18,10 @@
     .topbar a { border-bottom:1px solid transparent; }
     .topbar a:hover { border-color:var(--ink); }
     .nav { display:flex; gap:18px; }
+    .topbar-actions { display:flex; align-items:center; gap:26px; }
+    .language-switch { display:flex; align-items:center; gap:5px; color:var(--muted); font-size:13px; line-height:1; }
+    .language-switch button { appearance:none; border:0; padding:0; background:transparent; color:var(--muted); font:inherit; cursor:pointer; }
+    .language-switch button:hover, .language-switch button.is-active { color:var(--ink); font-weight:700; }
     .hero { min-height:69vh; display:flex; flex-direction:column; justify-content:space-between; padding:3vh 0 30px; }
     h1 { margin:0; max-width:1130px; font-size:clamp(3.4rem, 8.3vw, 8.5rem); font-weight:400; line-height:.93; letter-spacing:-.075em; }
     .hero-bottom { display:grid; grid-template-columns:1fr 2fr; gap:25px; align-items:end; padding-top:62px; }
@@ -81,14 +85,14 @@
     .contact a:hover { color:var(--accent); border-color:var(--accent); }
     .small { color:var(--muted); font-size:13px; }
     @media (prefers-reduced-motion:no-preference) { [data-reveal], [data-reveal-number] { opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); } [data-reveal].is-visible, [data-reveal-number].is-visible { opacity:1; transform:translateY(0); } [data-reveal-number] { transition-delay:.12s; } }
-    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { margin:0 -18px; padding:18px 18px 16px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:1fr 24px; gap:13px; } .work-text { grid-column:auto; margin-top:4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
+    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { margin:0 -18px; padding:18px 18px 16px; } .topbar-actions { gap:14px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:1fr 24px; gap:13px; } .work-text { grid-column:auto; margin-top:4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
   </style>
 </head>
 <body>
   <main class="page">
     <header class="topbar">
       <a href="#top" aria-label="Back to top">AB / 2026</a>
-      <nav class="nav" aria-label="Navigation"><a href="#work">Cases</a><a href="#about">Experience</a><a href="#contact">Contact</a></nav>
+      <div class="topbar-actions"><nav class="nav" aria-label="Navigation"><a href="#work">Cases</a><a href="#about">Experience</a><a href="#contact">Contact</a></nav><div class="language-switch" aria-label="Language selector"><button type="button" data-language="ru" aria-pressed="false">RU</button><span>/</span><button type="button" data-language="en" aria-pressed="true" class="is-active">EN</button></div></div>
     </header>
 
     <section class="hero" id="top">
@@ -198,6 +202,135 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
       items.forEach((item) => observer.observe(item));
+    })();
+    (() => {
+      const copy = {
+        en: {
+          '.nav a': ['Cases', 'Experience', 'Contact'],
+          '.hero-bottom .index': 'Portfolio / 2026',
+          '.intro': 'Interactive advertising, AdTech and AI automation. From motion design and HTML5 banners to campaign delivery, measurement and optimization.',
+          '#work .section-head .eyebrow': 'Cases',
+          '#work .section-head h2': 'Advertising you can<br>experience in motion',
+          '#work .work-title': ['High-impact<br>formats', 'Motion design<br>&amp; promo reels', 'Ad operations<br>&amp; measurement', 'AI creative<br>workflow', 'Mail Sender<br>— Adzone', 'Research<br>&amp; experiments'],
+          '#work .work-text': ['Interactive mobile and desktop builds: skins, in-read, page grabbers and banners.', 'Motion design and promotional-video production for campaign launches, from storyboarding to final render.', 'Campaign delivery and monitoring, inventory optimization, post-click analytics, CRM and call-tracking attribution.', 'Hands-on use of generative tools and mentoring for the production team.', 'A corporate desktop tool for preparing and sending email campaigns through IMAP.', 'LLM-agent research, AI animation and experiments in layout automation.'],
+          '#about > .roles > .eyebrow': 'Experience',
+          '#about .roles-copy p': 'Started in a press office as a Marketing &amp; PR Specialist, then moved into motion design, HTML5 and rich-media development, ad operations and performance analysis across 100+ campaigns. Today I combine creative production, publisher development and AI-enabled workflows.',
+          '#press-office .eyebrow': 'Press Office / Marketing &amp; PR',
+          '#press-office .process-copy': 'Developed content strategy and coordinated media teams, designers, videographers and external digital and PR agencies. Managed two Telegram channels, a Yandex Zen publication and VK communities; tracked audience performance, paid social and community signals, identified news hooks and prepared campaign reports.',
+          '#operations .eyebrow': 'InLab / Digital Marketing',
+          '#operations .process-list li': ['Motion graphics and advertising video', 'HTML5 and rich-media production', 'Trafficking and campaign delivery', 'Inventory control and optimization', 'Post-click analytics and attribution', 'CRM and call-tracking integration'],
+          '#adzone .eyebrow': 'Adzone / Publisher Development',
+          '#adzone .process-copy': 'Sourced and assessed 1,000+ digital publishers, developed partner relationships, and prepared qualified inventory for programmatic onboarding. Worked with DSP and campaign teams to review supply quality and support campaign launches.',
+          '#ai-illustration .eyebrow': 'Krasota Publishing House / AI Illustration &amp; Generative Content',
+          '#ai-illustration .role-date': '2025—Present',
+          '#ai-illustration .process-copy': 'Created book illustrations and production-ready visual systems with generative AI. Built ComfyUI and local-model workflows, LoRA setups and automated prompt pipelines—reducing manual production effort by roughly 90%.',
+          '#formats .section-head .eyebrow': 'Live formats',
+          '#formats .section-note': 'Selected projects from 100+ advertising campaigns. Open a demo in a new window to see each format in its natural environment.',
+          '#formats .live > .index': ['Mobile', 'Desktop'],
+          '#formats .format': 'Live demo ↗',
+          '#motion-reel .media-caption span': ['Motion design reel', 'Video / selected work'],
+          '#measurement .section-head .eyebrow': 'Measurement',
+          '#measurement .section-head h2': 'Media placement measurement<br>by publisher',
+          '#measurement .measurement-head .index': 'Reporting extract',
+          '#measurement .measurement-head p': 'Archived publisher-level extract: sessions, impressions and clicks. This view shows where delivery is generating traffic and which publishers need optimization.',
+          '#measurement .metric span': ['publishers in report', 'sessions', 'impressions', 'clicks'],
+          '#measurement .source-note': 'CTR by impressions: 0.66%. Calculated from the supplied archived report.',
+          '#measurement .media-copy p': 'My scope of work included campaign delivery and monitoring, publisher evaluation, inventory optimization, and connecting post-click events with CRM and call tracking.',
+          '#measurement .media-copy .small': 'This is the original data extract, not a fabricated dashboard. Click the image to view it in full.',
+          '#ai .section-head .eyebrow': 'AI production',
+          '#ai .section-head h2': 'AI as a production tool,<br>not a visual gimmick',
+          '#ai .research .index': 'Practice',
+          '#ai .research p': 'Prepared and led a hands-on training session on AI tools for the production team. Demonstrated asset and video generation for advertising creatives, especially for clients without a brand book or source materials.',
+          '#ai .process > .eyebrow': 'What changed',
+          '#ai .process-list li': ['Fast concepts and variants for approval', 'Backgrounds, key visuals and video loops', 'Repeatable workflows for production tasks', 'Quality control and brand alignment'],
+          '#ai .media-copy p': 'This ComfyUI workflow generates static assets while maintaining object consistency. Completed images are exported to a working folder and then assembled into an HTML creative.',
+          '#ai .media-copy .small': 'My role: process setup, hands-on training and production-team mentoring.',
+          '#sender .section-head .eyebrow': 'Internal tool',
+          '#sender .research .index': 'Desktop app',
+          '#sender .research p': 'Corporate email delivery tool with sender profiles, mail-provider connections, templates, attachments, sending limits, an activity log and IMAP archive saving.',
+          '#sender .media-caption span': ['Internal application', 'Credentials redacted'],
+          '#research .section-head .eyebrow': 'Editorial AI',
+          '#research .section-head h2': 'Research<br>&amp; experiments',
+          '#research .research .index': 'Research',
+          '#research .research p': 'Unpublished research on LLM-based multi-agent systems in political analysis. Alongside it, I explore AI animation, layout automation and illustration generation for editorial projects.',
+          '#research .media-copy p': 'In Higgsfield, I produced visual assets for a book: decorative initials, scenes, characters and spreads in one consistent visual language.',
+          'footer > .eyebrow': 'Contact'
+        },
+        ru: {
+          '.nav a': ['Кейсы', 'Опыт', 'Контакты'],
+          '.hero-bottom .index': 'Портфолио / 2026',
+          '.intro': 'Интерактивная реклама, AdTech и AI-автоматизация. От моушн-дизайна и HTML5-баннеров до запуска, измерения и оптимизации кампаний.',
+          '#work .section-head .eyebrow': 'Кейсы',
+          '#work .section-head h2': 'Реклама, которую можно<br>увидеть в работе',
+          '#work .work-title': ['Высокоэффективные<br>форматы', 'Моушн-дизайн<br>и промо-ролики', 'Ad operations<br>и измерение', 'AI-креативные<br>workflow', 'Mail Sender<br>— Adzone', 'Исследования<br>и эксперименты'],
+          '#work .work-text': ['Интерактивные mobile- и desktop-форматы: skins, in-read, page grabber и баннеры.', 'Моушн-дизайн и производство промо-роликов для запуска кампаний: от раскадровки до финального рендера.', 'Запуск и контроль кампаний, оптимизация инвентаря, post-click-аналитика, CRM- и call-tracking-атрибуция.', 'Практическое использование генеративных инструментов и наставничество production-команды.', 'Корпоративный desktop-инструмент для подготовки и отправки email-рассылок через IMAP.', 'Исследование LLM-агентов, AI-анимация и эксперименты с автоматизацией вёрстки.'],
+          '#about > .roles > .eyebrow': 'Опыт',
+          '#about .roles-copy p': 'Начинал как специалист по маркетингу и PR в пресс-службе, затем перешёл в моушн-дизайн, HTML5- и rich-media-разработку, ad operations и анализ эффективности в рамках 100+ кампаний. Сегодня соединяю креативное производство, развитие площадок и AI-workflow.',
+          '#press-office .eyebrow': 'Пресс-служба / Маркетинг и PR',
+          '#press-office .process-copy': 'Разрабатывал контент-стратегии и координировал media-команды, дизайнеров, видеографов и внешние digital- и PR-агентства. Вёл два Telegram-канала, Яндекс.Дзен и сообщества VK; анализировал аудиторию, paid social и community-сигналы, находил инфоповоды и готовил отчёты.',
+          '#operations .eyebrow': 'InLab / Диджитал-маркетинг',
+          '#operations .process-list li': ['Моушн-графика и рекламные ролики', 'HTML5- и rich-media-production', 'Trafficking и запуск кампаний', 'Контроль инвентаря и оптимизация', 'Post-click-аналитика и атрибуция', 'Интеграция CRM и call tracking'],
+          '#adzone .eyebrow': 'Adzone / Развитие площадок',
+          '#adzone .process-copy': 'Искал и оценивал 1 000+ digital-площадок, развивал партнёрские отношения и готовил качественный инвентарь к programmatic-подключению. Работал с DSP- и campaign-командами над качеством поставки и запуском кампаний.',
+          '#ai-illustration .eyebrow': 'Издательский дом Krasota / AI-иллюстрации и генеративный контент',
+          '#ai-illustration .role-date': '2025—н.в.',
+          '#ai-illustration .process-copy': 'Создавал иллюстрации для книг и production-ready визуальные системы с помощью генеративного AI. Собирал workflow в ComfyUI и на локальных моделях, настраивал LoRA и автоматизацию промптов — это сократило объём ручной работы примерно на 90%.',
+          '#formats .section-head .eyebrow': 'Интерактивные форматы',
+          '#formats .section-note': 'Избранные проекты из 100+ рекламных кампаний. Откройте демо в новом окне, чтобы увидеть каждый формат в его естественной среде.',
+          '#formats .live > .index': ['Мобильные', 'Десктопные'],
+          '#formats .format': 'Демо ↗',
+          '#motion-reel .media-caption span': ['Ролик по моушн-дизайну', 'Видео / избранная работа'],
+          '#measurement .section-head .eyebrow': 'Измерение',
+          '#measurement .section-head h2': 'Измерение размещений<br>по площадкам',
+          '#measurement .measurement-head .index': 'Выгрузка отчёта',
+          '#measurement .measurement-head p': 'Архивная выгрузка по площадкам: сессии, показы и клики. Такой срез показывает, где размещение собирает трафик и какие площадки требуют оптимизации.',
+          '#measurement .metric span': ['площадок в отчёте', 'сессий', 'показов', 'кликов'],
+          '#measurement .source-note': 'CTR по показам: 0,66%. Расчёт по предоставленной архивной таблице.',
+          '#measurement .media-copy p': 'Моя зона ответственности включала запуск и контроль размещений, оценку площадок, оптимизацию инвентаря и связывание post-click-событий с CRM и call tracking.',
+          '#measurement .media-copy .small': 'Это исходный срез данных, а не нарисованный дашборд. Нажмите на изображение, чтобы открыть его целиком.',
+          '#ai .section-head .eyebrow': 'AI-production',
+          '#ai .section-head h2': 'AI как инструмент производства,<br>а не декоративный эффект',
+          '#ai .research .index': 'Практика',
+          '#ai .research p': 'Подготовил и провёл практический разбор AI-инструментов для production-команды. Показал, как использовать генерацию ассетов и видео при подготовке рекламных креативов, особенно для клиентов без готового брендбука и исходных материалов.',
+          '#ai .process > .eyebrow': 'Что изменилось',
+          '#ai .process-list li': ['Быстрые концепты и варианты для согласования', 'Фоны, key visuals и видео-лупы', 'Повторяемые workflow для production-задач', 'Контроль качества и соответствия бренду'],
+          '#ai .media-copy p': 'Этот workflow в ComfyUI создаёт статику с контролем консистентности объектов. Готовые изображения экспортируются в рабочую папку, откуда затем собирается HTML-креатив.',
+          '#ai .media-copy .small': 'Моя роль: настройка процесса, практическое обучение и наставничество production-команды.',
+          '#sender .section-head .eyebrow': 'Внутренний инструмент',
+          '#sender .research .index': 'Десктоп-приложение',
+          '#sender .research p': 'Корпоративное приложение для email-рассылок: профили отправителей, подключение к почтовым провайдерам, шаблоны, вложения, лимиты, журнал отправки и сохранение писем в IMAP.',
+          '#sender .media-caption span': ['Внутреннее приложение', 'Учётные данные скрыты'],
+          '#research .section-head .eyebrow': 'AI в издательских проектах',
+          '#research .section-head h2': 'Исследования<br>и эксперименты',
+          '#research .research .index': 'Исследование',
+          '#research .research p': 'Неопубликованная исследовательская работа о применении LLM-мультиагентных систем в политическом анализе. Параллельно работаю с AI-анимацией, автоматизацией вёрстки и генерацией иллюстраций для издательских проектов.',
+          '#research .media-copy p': 'В Higgsfield подготовил визуальные ассеты для книги: декоративные буквицы, сцены, персонажей и книжные развороты в едином изобразительном языке.',
+          'footer > .eyebrow': 'Контакты'
+        }
+      };
+      const write = (selector, value) => {
+        const nodes = document.querySelectorAll(selector);
+        if (Array.isArray(value)) nodes.forEach((node, index) => { node.innerHTML = value[index] ?? value[value.length - 1]; });
+        else nodes.forEach((node) => { node.innerHTML = value; });
+      };
+      const setLanguage = (language) => {
+        Object.entries(copy[language]).forEach(([selector, value]) => write(selector, value));
+        document.documentElement.lang = language;
+        document.title = language === 'ru' ? 'Artem Belyakov — Портфолио' : 'Artem Belyakov — Portfolio';
+        document.querySelector('.nav').setAttribute('aria-label', language === 'ru' ? 'Навигация' : 'Navigation');
+        document.querySelector('.topbar > a').setAttribute('aria-label', language === 'ru' ? 'Наверх' : 'Back to top');
+        document.querySelector('.language-switch').setAttribute('aria-label', language === 'ru' ? 'Выбор языка' : 'Language selector');
+        document.querySelectorAll('[data-language]').forEach((button) => {
+          const active = button.dataset.language === language;
+          button.classList.toggle('is-active', active);
+          button.setAttribute('aria-pressed', String(active));
+        });
+        try { localStorage.setItem('portfolio-language', language); } catch (_) {}
+      };
+      document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => setLanguage(button.dataset.language)));
+      let saved = 'en';
+      try { saved = localStorage.getItem('portfolio-language') || 'en'; } catch (_) {}
+      setLanguage(saved === 'ru' ? 'ru' : 'en');
     })();
   </script>
 </body>
