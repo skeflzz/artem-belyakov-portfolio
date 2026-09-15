@@ -29,7 +29,7 @@
     h2 { margin:0; font-size:clamp(1.75rem,3vw,3.2rem); font-weight:400; letter-spacing:-.055em; line-height:.96; }
     .section-note { margin:0; max-width:650px; font-size:18px; letter-spacing:-.025em; }
     .work-list { border-top:1px solid var(--rule); }
-    .work { display:grid; grid-template-columns:82px minmax(170px, 1fr) minmax(250px, 1.45fr) 48px; gap:24px; align-items:start; border-bottom:1px solid var(--rule); padding:20px 0 25px; transition:padding .22s ease, background .22s ease; }
+    .work { display:grid; grid-template-columns:minmax(170px, 1fr) minmax(250px, 1.45fr) 48px; gap:24px; align-items:start; border-bottom:1px solid var(--rule); padding:20px 0 25px; transition:padding .22s ease, background .22s ease; }
     .work:hover { padding-left:12px; padding-right:12px; background:#ecece7; }
     .work-title { margin:0; font-size:clamp(1.65rem, 2.9vw,3.1rem); line-height:.98; letter-spacing:-.06em; font-weight:400; }
     .work-text { margin:4px 0 0; max-width:510px; font-size:15px; letter-spacing:-.015em; }
@@ -79,37 +79,44 @@
     .contact a:hover { color:var(--accent); border-color:var(--accent); }
     .small { color:var(--muted); font-size:13px; }
     @media (prefers-reduced-motion:no-preference) { [data-reveal], [data-reveal-number] { opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); } [data-reveal].is-visible, [data-reveal-number].is-visible { opacity:1; transform:translateY(0); } [data-reveal-number] { transition-delay:.12s; } }
-    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { margin:0 -18px; padding:18px 18px 16px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:38px 1fr 24px; gap:13px; } .work-text { grid-column:2 / 4; margin-top:-4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
+    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { margin:0 -18px; padding:18px 18px 16px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:1fr 24px; gap:13px; } .work-text { grid-column:auto; margin-top:4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
   </style>
 </head>
 <body>
   <main class="page">
     <header class="topbar">
       <a href="#top" aria-label="Back to top">AB / 2026</a>
-      <nav class="nav" aria-label="Navigation"><a href="#work">Work</a><a href="#about">Experience</a><a href="#contact">Contact</a></nav>
+      <nav class="nav" aria-label="Navigation"><a href="#work">Cases</a><a href="#about">Experience</a><a href="#contact">Contact</a></nav>
     </header>
 
     <section class="hero" id="top">
       <h1>Artem<br>Belyakov</h1>
       <div class="hero-bottom">
-        <span class="index">Portfolio / 01—06</span>
+        <span class="index">Portfolio / 2026</span>
         <p class="intro">Interactive advertising, AdTech and AI automation. From motion design and HTML5 banners to campaign delivery, measurement and optimization.</p>
       </div>
     </section>
 
     <section class="section" id="work" data-reveal>
-      <div class="section-head"><span class="eyebrow">Selected work</span><h2>Advertising you can<br>experience in motion</h2></div>
+      <div class="section-head"><span class="eyebrow">Cases</span><h2>Advertising you can<br>experience in motion</h2></div>
       <div class="work-list">
-        <article class="work"><a href="#formats"><span class="index">01</span><h3 class="work-title">High-impact<br>formats</h3><p class="work-text">Interactive mobile and desktop builds: skins, in-read, page grabbers and banners.</p><span class="arrow">↘</span></a></article>
-        <article class="work"><a href="#measurement"><span class="index">02</span><h3 class="work-title">Ad operations<br>& measurement</h3><p class="work-text">Campaign delivery and monitoring, inventory optimization, post-click analytics, CRM and call-tracking attribution.</p><span class="arrow">↘</span></a></article>
-        <article class="work"><a href="#ai"><span class="index">03</span><h3 class="work-title">AI creative<br>workflow</h3><p class="work-text">Hands-on use of generative tools and mentoring for the production team.</p><span class="arrow">↘</span></a></article>
-        <article class="work"><a href="#sender"><span class="index">04</span><h3 class="work-title">Mail Sender<br>— Adzone</h3><p class="work-text">A corporate desktop tool for preparing and sending email campaigns through IMAP.</p><span class="arrow">↘</span></a></article>
-        <article class="work"><a href="#research"><span class="index">05</span><h3 class="work-title">Research<br>& experiments</h3><p class="work-text">LLM-agent research, AI animation and experiments in layout automation.</p><span class="arrow">↘</span></a></article>
+        <article class="work"><a href="#formats"><h3 class="work-title">High-impact<br>formats</h3><p class="work-text">Interactive mobile and desktop builds: skins, in-read, page grabbers and banners.</p><span class="arrow">↘</span></a></article>
+        <article class="work"><a href="#measurement"><h3 class="work-title">Ad operations<br>& measurement</h3><p class="work-text">Campaign delivery and monitoring, inventory optimization, post-click analytics, CRM and call-tracking attribution.</p><span class="arrow">↘</span></a></article>
+        <article class="work"><a href="#ai"><h3 class="work-title">AI creative<br>workflow</h3><p class="work-text">Hands-on use of generative tools and mentoring for the production team.</p><span class="arrow">↘</span></a></article>
+        <article class="work"><a href="#sender"><h3 class="work-title">Mail Sender<br>— Adzone</h3><p class="work-text">A corporate desktop tool for preparing and sending email campaigns through IMAP.</p><span class="arrow">↘</span></a></article>
+        <article class="work"><a href="#research"><h3 class="work-title">Research<br>& experiments</h3><p class="work-text">LLM-agent research, AI animation and experiments in layout automation.</p><span class="arrow">↘</span></a></article>
       </div>
     </section>
 
+    <section class="section" id="about" data-reveal>
+      <div class="roles"><span class="eyebrow">Experience</span><div class="roles-copy"><p>100+ campaigns for leading brands. My role evolved with the work: motion designer, HTML5 and rich-media developer, then ad operations and performance analysis.</p><div class="brands"><span>Pyaterochka</span><span>Gazprom</span><span>Yandex</span><span>NIVEA</span><span>Procter &amp; Gamble</span><span>Rollton</span><span>Lemana PRO</span><span>Ozon</span></div></div></div>
+      <div class="process" id="operations"><span class="eyebrow">Campaign work</span><ul class="process-list"><li>Motion graphics and advertising video</li><li>HTML5 and rich-media production</li><li>Trafficking and campaign delivery</li><li>Inventory control and optimization</li><li>Post-click analytics and attribution</li><li>CRM and call-tracking integration</li></ul></div>
+      <div class="process" id="adzone"><span class="eyebrow">Adzone / Publisher development</span><p class="process-copy">Sourced and assessed 1,000+ digital publishers, developed partner relationships, and prepared qualified inventory for programmatic onboarding. Worked with DSP and campaign teams to review supply quality and support campaign launches.</p></div>
+      <div class="process" id="ai-illustration"><span class="eyebrow">AI illustration / Generative content</span><p class="process-copy">Created book illustrations and production-ready visual systems with generative AI. Built ComfyUI and local-model workflows, LoRA setups and automated prompt pipelines—reducing manual production effort by roughly 90%.</p></div>
+    </section>
+
     <section class="section" id="formats" data-reveal>
-      <div class="section-head"><span class="eyebrow">01 / Live formats</span><p class="section-note">Selected projects from 100+ advertising campaigns. Open a demo in a new window to see each format in its natural environment.</p></div>
+      <div class="section-head"><span class="eyebrow">Live formats</span><p class="section-note">Selected projects from 100+ advertising campaigns. Open a demo in a new window to see each format in its natural environment.</p></div>
       <div class="live">
         <span class="index">Mobile</span>
         <div class="live-list">
@@ -135,14 +142,8 @@
       </div>
     </section>
 
-    <section class="section" id="about" data-reveal>
-      <div class="roles"><span class="eyebrow">02 / Experience</span><div class="roles-copy"><p>100+ campaigns for leading brands. My role evolved with the work: motion designer, HTML5 and rich-media developer, then ad operations and performance analysis.</p><div class="brands"><span>Pyaterochka</span><span>Gazprom</span><span>Yandex</span><span>NIVEA</span><span>Procter &amp; Gamble</span><span>Rollton</span><span>Lemana PRO</span><span>Ozon</span></div></div></div>
-      <div class="process" id="operations"><span class="eyebrow">Campaign work</span><ul class="process-list"><li>Motion graphics and advertising video</li><li>HTML5 and rich-media production</li><li>Trafficking and campaign delivery</li><li>Inventory control and optimization</li><li>Post-click analytics and attribution</li><li>CRM and call-tracking integration</li></ul></div>
-      <div class="process" id="adzone"><span class="eyebrow">Adzone / Publisher development</span><p class="process-copy">Sourced and assessed 1,000+ digital publishers, developed partner relationships, and prepared qualified inventory for programmatic onboarding. Worked with DSP and campaign teams to review supply quality and support campaign launches.</p></div>
-    </section>
-
     <section class="section" id="measurement" data-reveal>
-      <div class="section-head"><span class="eyebrow">03 / Measurement</span><h2>Media placement measurement<br>by publisher</h2></div>
+      <div class="section-head"><span class="eyebrow">Measurement</span><h2>Media placement measurement<br>by publisher</h2></div>
       <div class="measurement">
         <div class="measurement-head"><span class="index">Reporting extract</span><p>Archived publisher-level extract: sessions, impressions and clicks. This view shows where delivery is generating traffic and which publishers need optimization.</p></div>
         <div class="metric-strip">
@@ -157,20 +158,20 @@
     </section>
 
     <section class="section" id="ai" data-reveal>
-      <div class="section-head"><span class="eyebrow">04 / AI production</span><h2>AI as a production tool,<br>not a visual gimmick</h2></div>
+      <div class="section-head"><span class="eyebrow">AI production</span><h2>AI as a production tool,<br>not a visual gimmick</h2></div>
       <div class="research"><span class="index">Practice</span><p>Prepared and led a hands-on training session on AI tools for the production team. Demonstrated asset and video generation for advertising creatives, especially for clients without a brand book or source materials.</p></div>
       <div class="process"><span class="eyebrow">What changed</span><ul class="process-list"><li>Fast concepts and variants for approval</li><li>Backgrounds, key visuals and video loops</li><li>Repeatable workflows for production tasks</li><li>Quality control and brand alignment</li></ul></div>
       <div class="media-grid"><a class="image-link" href="assets/comfy-workflow.png" target="_blank" rel="noreferrer" title="Open full workflow"><img class="media-image" src="assets/comfy-workflow.png" alt="ComfyUI workflow for maintaining object consistency across advertising campaigns"></a><div class="media-copy"><p>This ComfyUI workflow generates static assets while maintaining object consistency. Completed images are exported to a working folder and then assembled into an HTML creative.</p><span class="small">My role: process setup, hands-on training and production-team mentoring.</span></div></div>
     </section>
 
     <section class="section" id="sender" data-reveal>
-      <div class="section-head"><span class="eyebrow">05 / Internal tool</span><h2>Mail Sender — Adzone</h2></div>
+      <div class="section-head"><span class="eyebrow">Internal tool</span><h2>Mail Sender — Adzone</h2></div>
       <div class="research"><span class="index">Desktop app</span><p>Corporate email delivery tool with sender profiles, mail-provider connections, templates, attachments, sending limits, an activity log and IMAP archive saving.</p></div>
       <div class="media-stage"><div class="media-caption"><span>Internal application</span><span>Credentials redacted</span></div><a class="image-link" href="assets/mail-sender.png" target="_blank" rel="noreferrer" title="Open full screenshot"><img class="media-image" src="assets/mail-sender.png" alt="Mail Sender — Adzone corporate email delivery application"></a></div>
     </section>
 
     <section class="section" id="research" data-reveal>
-      <div class="section-head"><span class="eyebrow">06 / Editorial AI</span><h2>Research<br>& experiments</h2></div>
+      <div class="section-head"><span class="eyebrow">Editorial AI</span><h2>Research<br>& experiments</h2></div>
       <div class="research"><span class="index">Research</span><p>Unpublished research on LLM-based multi-agent systems in political analysis. Alongside it, I explore AI animation, layout automation and illustration generation for editorial projects.</p></div>
       <div class="media-grid"><a class="image-link" href="assets/editorial-assets.png" target="_blank" rel="noreferrer" title="Open full screenshot"><img class="media-image" src="assets/editorial-assets.png" alt="Generated illustrations and book spreads for an editorial project"></a><div class="media-copy"><p>In Higgsfield, I produced visual assets for a book: decorative initials, scenes, characters and spreads in one consistent visual language.</p><span class="small">AI-assisted editorial production / visual consistency across the book.</span></div></div>
     </section>
