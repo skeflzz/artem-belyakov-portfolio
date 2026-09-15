@@ -21,7 +21,7 @@
     .hero { min-height:69vh; display:flex; flex-direction:column; justify-content:space-between; padding:3vh 0 30px; }
     h1 { margin:0; max-width:1130px; font-size:clamp(3.4rem, 8.3vw, 8.5rem); font-weight:400; line-height:.93; letter-spacing:-.075em; }
     .hero-bottom { display:grid; grid-template-columns:1fr 2fr; gap:25px; align-items:end; padding-top:62px; }
-    .index, .eyebrow { color:var(--muted); font-size:13px; letter-spacing:.01em; }
+    .index, .eyebrow { color:#51514d; font-size:14px; letter-spacing:.01em; }
     .section > .section-head .eyebrow, .section > .roles > .eyebrow, footer > .eyebrow { display:inline-flex; align-items:center; width:fit-content; padding:9px 14px 10px; border-radius:8px; background:var(--ink); color:var(--paper); font-size:clamp(.92rem,1.25vw,1.1rem); font-weight:600; letter-spacing:-.025em; line-height:1; }
     .intro { max-width:610px; font-size:clamp(1.3rem,2.1vw,2rem); line-height:1.12; letter-spacing:-.045em; }
     .section { border-top:1px solid var(--ink); padding-top:14px; margin-top:78px; }
@@ -45,7 +45,9 @@
     .roles-copy p { margin:0; max-width:760px; }
     .brands { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0 18px; margin-top:38px; color:var(--muted); font-size:15px; letter-spacing:0; }
     .brands span { border-top:1px solid var(--rule); padding:10px 0 11px; }
-    .process { display:grid; grid-template-columns:1fr 2fr; gap:25px; border-top:1px solid var(--rule); margin-top:44px; padding-top:14px; }
+    .process { display:grid; grid-template-columns:1fr 2fr; gap:25px; border-top:1px solid var(--rule); margin-top:44px; padding-top:18px; }
+    .process .eyebrow { display:block; color:var(--ink); font-size:clamp(1.05rem,1.45vw,1.35rem); font-weight:600; line-height:1.08; letter-spacing:-.035em; }
+    .role-date { display:block; margin-top:8px; color:var(--muted); font-size:15px; font-weight:400; letter-spacing:-.015em; }
     .process-list { margin:0; padding:0; list-style:none; font-size:20px; letter-spacing:-.035em; }
     .process-list li { padding:7px 0; border-bottom:1px solid var(--rule); }
     .process-copy { margin:0; max-width:720px; font-size:20px; line-height:1.2; letter-spacing:-.035em; }
@@ -110,9 +112,9 @@
 
     <section class="section" id="about" data-reveal>
       <div class="roles"><span class="eyebrow">Experience</span><div class="roles-copy"><p>100+ campaigns for leading brands. My role evolved with the work: motion designer, HTML5 and rich-media developer, then ad operations and performance analysis.</p><div class="brands"><span>Pyaterochka</span><span>Gazprom</span><span>Yandex</span><span>NIVEA</span><span>Procter &amp; Gamble</span><span>Rollton</span><span>Lemana PRO</span><span>Ozon</span></div></div></div>
-      <div class="process" id="operations"><span class="eyebrow">Campaign work</span><ul class="process-list"><li>Motion graphics and advertising video</li><li>HTML5 and rich-media production</li><li>Trafficking and campaign delivery</li><li>Inventory control and optimization</li><li>Post-click analytics and attribution</li><li>CRM and call-tracking integration</li></ul></div>
-      <div class="process" id="adzone"><span class="eyebrow">Adzone / Publisher development</span><p class="process-copy">Sourced and assessed 1,000+ digital publishers, developed partner relationships, and prepared qualified inventory for programmatic onboarding. Worked with DSP and campaign teams to review supply quality and support campaign launches.</p></div>
-      <div class="process" id="ai-illustration"><span class="eyebrow">AI illustration / Generative content</span><p class="process-copy">Created book illustrations and production-ready visual systems with generative AI. Built ComfyUI and local-model workflows, LoRA setups and automated prompt pipelines—reducing manual production effort by roughly 90%.</p></div>
+      <div class="process" id="operations"><div><span class="eyebrow">InLab / Digital Marketing</span><span class="role-date">2024—2026</span></div><ul class="process-list"><li>Motion graphics and advertising video</li><li>HTML5 and rich-media production</li><li>Trafficking and campaign delivery</li><li>Inventory control and optimization</li><li>Post-click analytics and attribution</li><li>CRM and call-tracking integration</li></ul></div>
+      <div class="process" id="adzone"><div><span class="eyebrow">Adzone / Publisher Development</span><span class="role-date">2025—2026</span></div><p class="process-copy">Sourced and assessed 1,000+ digital publishers, developed partner relationships, and prepared qualified inventory for programmatic onboarding. Worked with DSP and campaign teams to review supply quality and support campaign launches.</p></div>
+      <div class="process" id="ai-illustration"><div><span class="eyebrow">Beauty Publishing House / AI Illustration &amp; Generative Content</span><span class="role-date">2025—Present</span></div><p class="process-copy">Created book illustrations and production-ready visual systems with generative AI. Built ComfyUI and local-model workflows, LoRA setups and automated prompt pipelines—reducing manual production effort by roughly 90%.</p></div>
     </section>
 
     <section class="section" id="formats" data-reveal>
