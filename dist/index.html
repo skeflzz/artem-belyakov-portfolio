@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Портфолио Artem Belyakov: interactive advertising, AdTech and AI automation.">
+  <title>Artem Belyakov — Portfolio</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111111'/%3E%3Cpath d='M16 48 29 16h7l13 32h-8l-2.8-7H26.8L24 48zm13.5-13h6l-3-8.4z' fill='%23f4f4ef'/%3E%3C/svg%3E">
+  <style>
+    :root { --paper:#f5f5f1; --ink:#111; --muted:#6d6d68; --rule:#d8d8d1; --accent:#1649ff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:1.35; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
+    .page { max-width:1440px; margin:0 auto; padding:24px 30px 42px; }
+    .topbar { display:flex; justify-content:space-between; align-items:center; padding-bottom:58px; font-size:14px; letter-spacing:-.01em; }
+    .topbar a { border-bottom:1px solid transparent; }
+    .topbar a:hover { border-color:var(--ink); }
+    .nav { display:flex; gap:18px; }
+    .hero { min-height:69vh; display:flex; flex-direction:column; justify-content:space-between; padding:3vh 0 30px; }
+    h1 { margin:0; max-width:1130px; font-size:clamp(3.4rem, 8.3vw, 8.5rem); font-weight:400; line-height:.93; letter-spacing:-.075em; }
+    .hero-bottom { display:grid; grid-template-columns:1fr 2fr; gap:25px; align-items:end; padding-top:62px; }
+    .index, .eyebrow { color:var(--muted); font-size:13px; letter-spacing:.01em; }
+    .intro { max-width:610px; font-size:clamp(1.3rem,2.1vw,2rem); line-height:1.12; letter-spacing:-.045em; }
+    .section { border-top:1px solid var(--ink); padding-top:14px; margin-top:78px; }
+    .section-head { display:grid; grid-template-columns:1fr 2fr; gap:25px; margin-bottom:35px; }
+    h2 { margin:0; font-size:clamp(1.75rem,3vw,3.2rem); font-weight:400; letter-spacing:-.055em; line-height:.96; }
+    .section-note { margin:0; max-width:650px; font-size:18px; letter-spacing:-.025em; }
+    .work-list { border-top:1px solid var(--rule); }
+    .work { display:grid; grid-template-columns:82px minmax(170px, 1fr) minmax(250px, 1.45fr) 48px; gap:24px; align-items:start; border-bottom:1px solid var(--rule); padding:20px 0 25px; transition:padding .22s ease, background .22s ease; }
+    .work:hover { padding-left:12px; padding-right:12px; background:#ecece7; }
+    .work-title { margin:0; font-size:clamp(1.65rem, 2.9vw,3.1rem); line-height:.98; letter-spacing:-.06em; font-weight:400; }
+    .work-text { margin:4px 0 0; max-width:510px; font-size:15px; letter-spacing:-.015em; }
+    .arrow { font-size:25px; text-align:right; line-height:.95; }
+    .work a { display:contents; }
+    .live { margin:48px 0 0; display:grid; grid-template-columns:1fr 2fr; gap:25px; }
+    .live-list { border-top:1px solid var(--rule); }
+    .live-item { display:flex; justify-content:space-between; gap:20px; border-bottom:1px solid var(--rule); padding:11px 0; font-size:16px; }
+    .live-item:hover { color:var(--accent); }
+    .format { color:var(--muted); font-size:13px; padding-top:2px; white-space:nowrap; }
+    .roles { display:grid; grid-template-columns:1fr 2fr; gap:25px; }
+    .roles-copy { font-size:clamp(1.6rem,3.1vw,3.25rem); line-height:1; letter-spacing:-.06em; }
+    .roles-copy p { margin:0; max-width:760px; }
+    .brands { display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:34px; color:var(--muted); font-size:15px; }
+    .brands span:not(:last-child)::after { content:'·'; margin-left:18px; color:var(--ink); }
+    .process { display:grid; grid-template-columns:1fr 2fr; gap:25px; border-top:1px solid var(--rule); margin-top:44px; padding-top:14px; }
+    .process-list { margin:0; padding:0; list-style:none; font-size:20px; letter-spacing:-.035em; }
+    .process-list li { padding:7px 0; border-bottom:1px solid var(--rule); }
+    .research { display:grid; grid-template-columns:1fr 2fr; gap:25px; }
+    .research p { margin:0; max-width:650px; font-size:21px; line-height:1.17; letter-spacing:-.04em; }
+    footer { display:grid; grid-template-columns:1fr 2fr; gap:25px; margin-top:130px; padding-top:14px; border-top:1px solid var(--ink); }
+    .contact { display:flex; flex-wrap:wrap; gap:10px 20px; font-size:clamp(1.45rem,2.8vw,2.8rem); line-height:1; letter-spacing:-.06em; }
+    .contact a { border-bottom:2px solid var(--ink); }
+    .contact a:hover { color:var(--accent); border-color:var(--accent); }
+    .small { color:var(--muted); font-size:13px; }
+    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { padding-bottom:34px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:38px 1fr 24px; gap:13px; } .work-text { grid-column:2 / 4; margin-top:-4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } footer { margin-top:88px; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a href="#top" aria-label="В начало">AB / 2026</a>
+      <nav class="nav" aria-label="Навигация"><a href="#work">Работы</a><a href="#about">Опыт</a><a href="#contact">Контакты</a></nav>
+    </header>
+
+    <section class="hero" id="top">
+      <h1>Artem<br>Belyakov</h1>
+      <div class="hero-bottom">
+        <span class="index">Portfolio / 01—06</span>
+        <p class="intro">Интерактивная реклама, AdTech и AI-автоматизация. От motion-графики и HTML5-баннеров до запуска, измерения и оптимизации кампаний.</p>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="section-head"><span class="eyebrow">Selected work</span><h2>Реклама, которую можно увидеть в работе</h2></div>
+      <div class="work-list">
+        <article class="work"><a href="#formats"><span class="index">01</span><h3 class="work-title">High-impact<br>formats</h3><p class="work-text">Вёрстка интерактивных mobile и desktop-форматов: skins, in-read, page grabber и баннеры.</p><span class="arrow">↘</span></a></article>
+        <article class="work"><a href="#operations"><span class="index">02</span><h3 class="work-title">Ad operations<br>& measurement</h3><p class="work-text">Запуск и контроль кампаний, оптимизация инвентаря, post-click-аналитика, CRM- и call-tracking-атрибуция.</p><span class="arrow">↘</span></a></article>
+        <article class="work"><a href="#ai"><span class="index">03</span><h3 class="work-title">AI creative<br>workflow</h3><p class="work-text">Практический сценарий использования генеративных инструментов и наставничество для отдела производства.</p><span class="arrow">↘</span></a></article>
+        <article class="work"><a href="#sender"><span class="index">04</span><h3 class="work-title">Mail Sender<br>— Adzone</h3><p class="work-text">Корпоративный desktop-инструмент для подготовки и отправки email-рассылок через IMAP.</p><span class="arrow">↘</span></a></article>
+        <article class="work"><a href="#research"><span class="index">05</span><h3 class="work-title">Research<br>& experiments</h3><p class="work-text">Исследование LLM-агентов, AI-анимация и эксперименты с автоматизацией вёрстки.</p><span class="arrow">↘</span></a></article>
+      </div>
+    </section>
+
+    <section class="section" id="formats">
+      <div class="section-head"><span class="eyebrow">01 / Live formats</span><p class="section-note">Избранные работы из 100+ рекламных кампаний. Откройте демо в новом окне и посмотрите форматы в их естественной среде.</p></div>
+      <div class="live">
+        <span class="index">Mobile</span>
+        <div class="live-list">
+          <a class="live-item" href="https://digitalcases.ru/2026/INLAB/ab/skin/xiaomi/Mobile_Skin/index.html" target="_blank" rel="noreferrer"><span>Xiaomi / Mobile Skin</span><span class="format">Live demo ↗</span></a>
+          <a class="live-item" href="https://digitalcases.ru/2026/INLAB/ab/page_grabber/beauty/3/test2/index.html" target="_blank" rel="noreferrer"><span>Beauty / Page Grabber</span><span class="format">Live demo ↗</span></a>
+        </div>
+      </div>
+      <div class="live">
+        <span class="index">Desktop</span>
+        <div class="live-list">
+          <a class="live-item" href="https://disk.innovation-lab.ru/rollton2026_2/300_600/" target="_blank" rel="noreferrer"><span>Rollton / 300 × 600</span><span class="format">Live demo ↗</span></a>
+          <a class="live-item" href="https://digitalcases.ru/2025/INLAB/ab/skin/yandex-go/Desktop_Skin/index.html" target="_blank" rel="noreferrer"><span>Yandex Go / Desktop Skin</span><span class="format">Live demo ↗</span></a>
+          <a class="live-item" href="https://digitalcases.ru/2025/INLAB/ab/inread/xiaomi_tv/2/xiaomi_tv/index.html" target="_blank" rel="noreferrer"><span>Xiaomi TV / InRead</span><span class="format">Live demo ↗</span></a>
+          <a class="live-item" href="https://digitalcases.ru/2025/INLAB/ab/skin/nivea/01.12/desk6/index.html" target="_blank" rel="noreferrer"><span>NIVEA / Desktop Skin</span><span class="format">Live demo ↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="roles"><span class="eyebrow">02 / Experience</span><div class="roles-copy"><p>Более 100 кампаний для крупных брендов. Роль менялась вместе с задачей: motion designer, HTML5 / rich-media developer, затем ad operations и аналитика эффективности.</p><div class="brands"><span>Пятёрочка</span><span>Газпром</span><span>Яндекс</span><span>NIVEA</span><span>Procter &amp; Gamble</span><span>Rollton</span><span>Лемана ПРО</span><span>Ozon</span></div></div></div>
+      <div class="process" id="operations"><span class="eyebrow">Campaign work</span><ul class="process-list"><li>Motion-графика и рекламные ролики</li><li>HTML5 и rich-media production</li><li>Trafficking и запуск кампаний</li><li>Контроль инвентаря и оптимизация</li><li>Post-click analytics и атрибуция</li><li>CRM и call-tracking integration</li></ul></div>
+    </section>
+
+    <section class="section" id="ai">
+      <div class="section-head"><span class="eyebrow">03 / AI production</span><h2>AI как инструмент производства, а не декоративный эффект</h2></div>
+      <div class="research"><span class="index">Практика</span><p>Подготовил и провёл практический разбор AI-инструментов для отдела производства. Показал, как использовать генерацию ассетов и видео при подготовке рекламных креативов, особенно для клиентов без готового брендбука и исходных материалов.</p></div>
+      <div class="process"><span class="eyebrow">What changed</span><ul class="process-list"><li>Быстрый концепт и вариации для согласования</li><li>Генерация фонов, key visuals и видео-лупов</li><li>Повторяемые workflow для production-задач</li><li>Контроль качества и соответствия бренду</li></ul></div>
+    </section>
+
+    <section class="section" id="sender">
+      <div class="section-head"><span class="eyebrow">04 / Internal tool</span><h2>Mail Sender — Adzone</h2></div>
+      <div class="research"><span class="index">Desktop app</span><p>Корпоративное приложение для email-рассылок: профили отправителей, подключение к почтовым провайдерам, шаблоны, вложения, лимиты, журнал отправки и сохранение писем в IMAP.</p></div>
+    </section>
+
+    <section class="section" id="research">
+      <div class="section-head"><span class="eyebrow">05 / In progress</span><h2>Research<br>& experiments</h2></div>
+      <div class="research"><span class="index">Research</span><p>Неопубликованная исследовательская работа о применении LLM-мультиагентных систем в политическом анализе. Параллельно исследую AI-анимацию, автоматизацию вёрстки и новые способы собирать медиа без лишней ручной работы.</p></div>
+    </section>
+
+    <footer id="contact">
+      <span class="eyebrow">Contact</span>
+      <div><div class="contact"><a href="https://t.me/skezziwe" target="_blank" rel="noreferrer">Telegram ↗</a><a href="mailto:mac22026@gmail.com">mac22026@gmail.com</a></div><p class="small">© Artem Belyakov, 2026</p></div>
+    </footer>
+  </main>
+</body>
+</html>
