@@ -42,19 +42,36 @@
     .roles { display:grid; grid-template-columns:1fr 2fr; gap:25px; }
     .roles-copy { font-size:clamp(1.6rem,3.1vw,3.25rem); line-height:1; letter-spacing:-.06em; }
     .roles-copy p { margin:0; max-width:760px; }
-    .brands { display:flex; flex-wrap:wrap; gap:8px 18px; margin-top:34px; color:var(--muted); font-size:15px; }
-    .brands span:not(:last-child)::after { content:'·'; margin-left:18px; color:var(--ink); }
+    .brands { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0 18px; margin-top:38px; color:var(--muted); font-size:15px; }
+    .brands span { border-top:1px solid var(--rule); padding:10px 0 11px; }
     .process { display:grid; grid-template-columns:1fr 2fr; gap:25px; border-top:1px solid var(--rule); margin-top:44px; padding-top:14px; }
     .process-list { margin:0; padding:0; list-style:none; font-size:20px; letter-spacing:-.035em; }
     .process-list li { padding:7px 0; border-bottom:1px solid var(--rule); }
     .research { display:grid; grid-template-columns:1fr 2fr; gap:25px; }
     .research p { margin:0; max-width:650px; font-size:21px; line-height:1.17; letter-spacing:-.04em; }
+    .media-stage { margin:40px 0 0; border-top:1px solid var(--rule); padding-top:14px; }
+    .media-caption { display:flex; justify-content:space-between; gap:18px; padding:0 0 12px; font-size:13px; color:var(--muted); }
+    .motion-video { display:block; width:100%; max-height:78vh; background:#111; object-fit:contain; }
+    .media-image { display:block; width:100%; height:auto; border:1px solid var(--rule); }
+    .media-grid { display:grid; grid-template-columns:1.08fr .92fr; gap:25px; align-items:start; margin-top:36px; }
+    .media-copy { padding-top:4px; font-size:18px; letter-spacing:-.025em; }
+    .media-copy p { margin:0 0 24px; }
+    .measurement { margin-top:42px; padding-top:14px; border-top:1px solid var(--rule); }
+    .measurement-head { display:grid; grid-template-columns:1fr 2fr; gap:25px; margin-bottom:28px; }
+    .measurement-head p { margin:0; max-width:650px; font-size:18px; letter-spacing:-.025em; }
+    .metric-strip { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); border-bottom:1px solid var(--ink); }
+    .metric { padding:15px 16px 18px 0; border-right:1px solid var(--rule); }
+    .metric:not(:first-child) { padding-left:16px; }
+    .metric:last-child { border-right:0; }
+    .metric b { display:block; font-size:clamp(1.75rem,3.4vw,3.5rem); line-height:1; letter-spacing:-.07em; font-weight:400; }
+    .metric span { display:block; margin-top:6px; color:var(--muted); font-size:13px; }
+    .source-note { margin:12px 0 0; color:var(--muted); font-size:13px; }
     footer { display:grid; grid-template-columns:1fr 2fr; gap:25px; margin-top:130px; padding-top:14px; border-top:1px solid var(--ink); }
     .contact { display:flex; flex-wrap:wrap; gap:10px 20px; font-size:clamp(1.45rem,2.8vw,2.8rem); line-height:1; letter-spacing:-.06em; }
     .contact a { border-bottom:2px solid var(--ink); }
     .contact a:hover { color:var(--accent); border-color:var(--accent); }
     .small { color:var(--muted); font-size:13px; }
-    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { padding-bottom:34px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:38px 1fr 24px; gap:13px; } .work-text { grid-column:2 / 4; margin-top:-4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } footer { margin-top:88px; } }
+    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { padding-bottom:34px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:38px 1fr 24px; gap:13px; } .work-text { grid-column:2 / 4; margin-top:-4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } footer { margin-top:88px; } }
   </style>
 </head>
 <body>
@@ -76,7 +93,7 @@
       <div class="section-head"><span class="eyebrow">Selected work</span><h2>Реклама, которую можно увидеть в работе</h2></div>
       <div class="work-list">
         <article class="work"><a href="#formats"><span class="index">01</span><h3 class="work-title">High-impact<br>formats</h3><p class="work-text">Вёрстка интерактивных mobile и desktop-форматов: skins, in-read, page grabber и баннеры.</p><span class="arrow">↘</span></a></article>
-        <article class="work"><a href="#operations"><span class="index">02</span><h3 class="work-title">Ad operations<br>& measurement</h3><p class="work-text">Запуск и контроль кампаний, оптимизация инвентаря, post-click-аналитика, CRM- и call-tracking-атрибуция.</p><span class="arrow">↘</span></a></article>
+        <article class="work"><a href="#measurement"><span class="index">02</span><h3 class="work-title">Ad operations<br>& measurement</h3><p class="work-text">Запуск и контроль кампаний, оптимизация инвентаря, post-click-аналитика, CRM- и call-tracking-атрибуция.</p><span class="arrow">↘</span></a></article>
         <article class="work"><a href="#ai"><span class="index">03</span><h3 class="work-title">AI creative<br>workflow</h3><p class="work-text">Практический сценарий использования генеративных инструментов и наставничество для отдела производства.</p><span class="arrow">↘</span></a></article>
         <article class="work"><a href="#sender"><span class="index">04</span><h3 class="work-title">Mail Sender<br>— Adzone</h3><p class="work-text">Корпоративный desktop-инструмент для подготовки и отправки email-рассылок через IMAP.</p><span class="arrow">↘</span></a></article>
         <article class="work"><a href="#research"><span class="index">05</span><h3 class="work-title">Research<br>& experiments</h3><p class="work-text">Исследование LLM-агентов, AI-анимация и эксперименты с автоматизацией вёрстки.</p><span class="arrow">↘</span></a></article>
@@ -101,6 +118,13 @@
           <a class="live-item" href="https://digitalcases.ru/2025/INLAB/ab/skin/nivea/01.12/desk6/index.html" target="_blank" rel="noreferrer"><span>NIVEA / Desktop Skin</span><span class="format">Live demo ↗</span></a>
         </div>
       </div>
+      <div class="media-stage">
+        <div class="media-caption"><span>Motion design reel</span><span>Video / selected work</span></div>
+        <video class="motion-video" controls muted loop playsinline preload="metadata" aria-label="Motion design reel Artem Belyakov">
+          <source src="assets/motion-reel.mp4" type="video/mp4">
+          Ваш браузер не поддерживает видео.
+        </video>
+      </div>
     </section>
 
     <section class="section" id="about">
@@ -108,20 +132,38 @@
       <div class="process" id="operations"><span class="eyebrow">Campaign work</span><ul class="process-list"><li>Motion-графика и рекламные ролики</li><li>HTML5 и rich-media production</li><li>Trafficking и запуск кампаний</li><li>Контроль инвентаря и оптимизация</li><li>Post-click analytics и атрибуция</li><li>CRM и call-tracking integration</li></ul></div>
     </section>
 
+    <section class="section" id="measurement">
+      <div class="section-head"><span class="eyebrow">03 / Measurement</span><h2>Измерение размещения<br>по площадкам</h2></div>
+      <div class="measurement">
+        <div class="measurement-head"><span class="index">Reporting extract</span><p>Архивная выгрузка по доменам: сессии, показы и клики. Такой срез помогает увидеть, где размещение собирает трафик и какие площадки требуют оптимизации.</p></div>
+        <div class="metric-strip">
+          <div class="metric"><b>37</b><span>доменов в выгрузке</span></div>
+          <div class="metric"><b>53 777</b><span>сессий</span></div>
+          <div class="metric"><b>26 135</b><span>показов</span></div>
+          <div class="metric"><b>172</b><span>кликов</span></div>
+        </div>
+        <p class="source-note">CTR по показам: 0,66%. Расчёт по предоставленной архивной таблице.</p>
+        <div class="media-grid"><img class="media-image" src="assets/campaign-metrics.png" alt="Архивная таблица размещения по доменам: сессии, показы и клики"><div class="media-copy"><p>В работе с такими данными моя зона ответственности включала запуск и контроль размещений, оценку площадок, оптимизацию инвентаря и связывание post-click-событий с CRM и call tracking.</p><span class="small">Показан исходный срез, а не нарисованный дашборд.</span></div></div>
+      </div>
+    </section>
+
     <section class="section" id="ai">
-      <div class="section-head"><span class="eyebrow">03 / AI production</span><h2>AI как инструмент производства, а не декоративный эффект</h2></div>
+      <div class="section-head"><span class="eyebrow">04 / AI production</span><h2>AI как инструмент производства, а не декоративный эффект</h2></div>
       <div class="research"><span class="index">Практика</span><p>Подготовил и провёл практический разбор AI-инструментов для отдела производства. Показал, как использовать генерацию ассетов и видео при подготовке рекламных креативов, особенно для клиентов без готового брендбука и исходных материалов.</p></div>
       <div class="process"><span class="eyebrow">What changed</span><ul class="process-list"><li>Быстрый концепт и вариации для согласования</li><li>Генерация фонов, key visuals и видео-лупов</li><li>Повторяемые workflow для production-задач</li><li>Контроль качества и соответствия бренду</li></ul></div>
+      <div class="media-grid"><img class="media-image" src="assets/comfy-workflow.png" alt="Workflow в ComfyUI для сохранения консистентности объектов в рекламных кампаниях"><div class="media-copy"><p>Workflow в ComfyUI создаёт статику с контролем консистентности объектов. Готовые изображения экспортируются в рабочую папку, откуда затем собирается HTML-креатив.</p><span class="small">Моя роль: настройка процесса, практическое обучение и наставничество production-команды.</span></div></div>
     </section>
 
     <section class="section" id="sender">
-      <div class="section-head"><span class="eyebrow">04 / Internal tool</span><h2>Mail Sender — Adzone</h2></div>
+      <div class="section-head"><span class="eyebrow">05 / Internal tool</span><h2>Mail Sender — Adzone</h2></div>
       <div class="research"><span class="index">Desktop app</span><p>Корпоративное приложение для email-рассылок: профили отправителей, подключение к почтовым провайдерам, шаблоны, вложения, лимиты, журнал отправки и сохранение писем в IMAP.</p></div>
+      <div class="media-stage"><div class="media-caption"><span>Internal application</span><span>Credentials redacted</span></div><img class="media-image" src="assets/mail-sender.png" alt="Интерфейс корпоративного приложения Mail Sender Adzone"></div>
     </section>
 
     <section class="section" id="research">
-      <div class="section-head"><span class="eyebrow">05 / In progress</span><h2>Research<br>& experiments</h2></div>
-      <div class="research"><span class="index">Research</span><p>Неопубликованная исследовательская работа о применении LLM-мультиагентных систем в политическом анализе. Параллельно исследую AI-анимацию, автоматизацию вёрстки и новые способы собирать медиа без лишней ручной работы.</p></div>
+      <div class="section-head"><span class="eyebrow">06 / Editorial AI</span><h2>Research<br>& experiments</h2></div>
+      <div class="research"><span class="index">Research</span><p>Неопубликованная исследовательская работа о применении LLM-мультиагентных систем в политическом анализе. Параллельно работаю с AI-анимацией, автоматизацией вёрстки и генерацией иллюстраций для издательских проектов.</p></div>
+      <div class="media-grid"><img class="media-image" src="assets/editorial-assets.png" alt="Набор сгенерированных иллюстраций и книжных разворотов для издательского проекта"><div class="media-copy"><p>В Higgsfield подготовил визуальные ассеты для книги: декоративные буквицы, сцены, персонажей и книжные развороты в едином изобразительном языке.</p><span class="small">AI-assisted editorial production / visual consistency across the book.</span></div></div>
     </section>
 
     <footer id="contact">
