@@ -54,6 +54,11 @@
     .motion-video { display:block; width:100%; max-height:78vh; background:#111; object-fit:contain; border:1px solid rgba(17,17,17,.22); border-radius:10px; }
     .media-image { display:block; width:100%; height:auto; border:1px solid rgba(17,17,17,.22); border-radius:10px; box-shadow:0 1px 0 rgba(17,17,17,.04), 0 14px 35px rgba(17,17,17,.045); }
     .media-grid { display:grid; grid-template-columns:1.08fr .92fr; gap:25px; align-items:start; margin-top:36px; }
+    .image-link { display:block; width:100%; align-self:start; }
+    .image-link:hover .media-image { border-color:rgba(22,73,255,.52); }
+    .media-grid .media-image { height:460px; object-fit:cover; object-position:top left; }
+    .media-stage .image-link { width:min(100%,720px); }
+    .media-stage .media-image { width:auto; max-width:100%; max-height:520px; object-fit:contain; object-position:top left; }
     .media-copy { padding-top:4px; font-size:18px; letter-spacing:-.025em; }
     .media-copy p { margin:0 0 24px; }
     .measurement { margin-top:42px; padding-top:14px; border-top:1px solid var(--rule); }
@@ -71,7 +76,7 @@
     .contact a { border-bottom:2px solid var(--ink); }
     .contact a:hover { color:var(--accent); border-color:var(--accent); }
     .small { color:var(--muted); font-size:13px; }
-    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { padding-bottom:34px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:38px 1fr 24px; gap:13px; } .work-text { grid-column:2 / 4; margin-top:-4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } footer { margin-top:88px; } }
+    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { padding-bottom:34px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:38px 1fr 24px; gap:13px; } .work-text { grid-column:2 / 4; margin-top:-4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
   </style>
 </head>
 <body>
@@ -143,7 +148,7 @@
           <div class="metric"><b>172</b><span>кликов</span></div>
         </div>
         <p class="source-note">CTR по показам: 0,66%. Расчёт по предоставленной архивной таблице.</p>
-        <div class="media-grid"><img class="media-image" src="assets/campaign-metrics.png" alt="Архивная таблица размещения по доменам: сессии, показы и клики"><div class="media-copy"><p>В работе с такими данными моя зона ответственности включала запуск и контроль размещений, оценку площадок, оптимизацию инвентаря и связывание post-click-событий с CRM и call tracking.</p><span class="small">Показан исходный срез, а не нарисованный дашборд.</span></div></div>
+        <div class="media-grid"><a class="image-link" href="assets/campaign-metrics.png" target="_blank" rel="noreferrer" title="Открыть полный скриншот"><img class="media-image" src="assets/campaign-metrics.png" alt="Архивная таблица размещения по доменам: сессии, показы и клики"></a><div class="media-copy"><p>В работе с такими данными моя зона ответственности включала запуск и контроль размещений, оценку площадок, оптимизацию инвентаря и связывание post-click-событий с CRM и call tracking.</p><span class="small">Показан исходный срез, а не нарисованный дашборд. Нажмите на изображение, чтобы открыть его целиком.</span></div></div>
       </div>
     </section>
 
@@ -151,19 +156,19 @@
       <div class="section-head"><span class="eyebrow">04 / AI production</span><h2>AI как инструмент производства, а не декоративный эффект</h2></div>
       <div class="research"><span class="index">Практика</span><p>Подготовил и провёл практический разбор AI-инструментов для отдела производства. Показал, как использовать генерацию ассетов и видео при подготовке рекламных креативов, особенно для клиентов без готового брендбука и исходных материалов.</p></div>
       <div class="process"><span class="eyebrow">What changed</span><ul class="process-list"><li>Быстрый концепт и вариации для согласования</li><li>Генерация фонов, key visuals и видео-лупов</li><li>Повторяемые workflow для production-задач</li><li>Контроль качества и соответствия бренду</li></ul></div>
-      <div class="media-grid"><img class="media-image" src="assets/comfy-workflow.png" alt="Workflow в ComfyUI для сохранения консистентности объектов в рекламных кампаниях"><div class="media-copy"><p>Workflow в ComfyUI создаёт статику с контролем консистентности объектов. Готовые изображения экспортируются в рабочую папку, откуда затем собирается HTML-креатив.</p><span class="small">Моя роль: настройка процесса, практическое обучение и наставничество production-команды.</span></div></div>
+      <div class="media-grid"><a class="image-link" href="assets/comfy-workflow.png" target="_blank" rel="noreferrer" title="Открыть полный workflow"><img class="media-image" src="assets/comfy-workflow.png" alt="Workflow в ComfyUI для сохранения консистентности объектов в рекламных кампаниях"></a><div class="media-copy"><p>Workflow в ComfyUI создаёт статику с контролем консистентности объектов. Готовые изображения экспортируются в рабочую папку, откуда затем собирается HTML-креатив.</p><span class="small">Моя роль: настройка процесса, практическое обучение и наставничество production-команды.</span></div></div>
     </section>
 
     <section class="section" id="sender">
       <div class="section-head"><span class="eyebrow">05 / Internal tool</span><h2>Mail Sender — Adzone</h2></div>
       <div class="research"><span class="index">Desktop app</span><p>Корпоративное приложение для email-рассылок: профили отправителей, подключение к почтовым провайдерам, шаблоны, вложения, лимиты, журнал отправки и сохранение писем в IMAP.</p></div>
-      <div class="media-stage"><div class="media-caption"><span>Internal application</span><span>Credentials redacted</span></div><img class="media-image" src="assets/mail-sender.png" alt="Интерфейс корпоративного приложения Mail Sender Adzone"></div>
+      <div class="media-stage"><div class="media-caption"><span>Internal application</span><span>Credentials redacted</span></div><a class="image-link" href="assets/mail-sender.png" target="_blank" rel="noreferrer" title="Открыть полный скриншот"><img class="media-image" src="assets/mail-sender.png" alt="Интерфейс корпоративного приложения Mail Sender Adzone"></a></div>
     </section>
 
     <section class="section" id="research">
       <div class="section-head"><span class="eyebrow">06 / Editorial AI</span><h2>Research<br>& experiments</h2></div>
       <div class="research"><span class="index">Research</span><p>Неопубликованная исследовательская работа о применении LLM-мультиагентных систем в политическом анализе. Параллельно работаю с AI-анимацией, автоматизацией вёрстки и генерацией иллюстраций для издательских проектов.</p></div>
-      <div class="media-grid"><img class="media-image" src="assets/editorial-assets.png" alt="Набор сгенерированных иллюстраций и книжных разворотов для издательского проекта"><div class="media-copy"><p>В Higgsfield подготовил визуальные ассеты для книги: декоративные буквицы, сцены, персонажей и книжные развороты в едином изобразительном языке.</p><span class="small">AI-assisted editorial production / visual consistency across the book.</span></div></div>
+      <div class="media-grid"><a class="image-link" href="assets/editorial-assets.png" target="_blank" rel="noreferrer" title="Открыть полный скриншот"><img class="media-image" src="assets/editorial-assets.png" alt="Набор сгенерированных иллюстраций и книжных разворотов для издательского проекта"></a><div class="media-copy"><p>В Higgsfield подготовил визуальные ассеты для книги: декоративные буквицы, сцены, персонажей и книжные развороты в едином изобразительном языке.</p><span class="small">AI-assisted editorial production / visual consistency across the book.</span></div></div>
     </section>
 
     <footer id="contact">
