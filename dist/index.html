@@ -14,7 +14,7 @@
     a { color:inherit; text-decoration:none; }
     a:focus-visible { outline:2px solid var(--accent); outline-offset:4px; }
     .page { max-width:1440px; margin:0 auto; padding:24px 30px 42px; }
-    .topbar { display:flex; justify-content:space-between; align-items:center; padding-bottom:58px; font-size:14px; letter-spacing:-.01em; }
+    .topbar { position:sticky; top:0; z-index:20; display:flex; justify-content:space-between; align-items:center; margin:0 -30px; padding:24px 30px 22px; background:rgba(245,245,241,.94); backdrop-filter:blur(10px); font-size:14px; letter-spacing:-.01em; }
     .topbar a { border-bottom:1px solid transparent; }
     .topbar a:hover { border-color:var(--ink); }
     .nav { display:flex; gap:18px; }
@@ -22,6 +22,7 @@
     h1 { margin:0; max-width:1130px; font-size:clamp(3.4rem, 8.3vw, 8.5rem); font-weight:400; line-height:.93; letter-spacing:-.075em; }
     .hero-bottom { display:grid; grid-template-columns:1fr 2fr; gap:25px; align-items:end; padding-top:62px; }
     .index, .eyebrow { color:var(--muted); font-size:13px; letter-spacing:.01em; }
+    .section > .section-head .eyebrow, .section > .roles > .eyebrow, footer > .eyebrow { display:inline-flex; align-items:center; width:fit-content; padding:9px 14px 10px; border-radius:8px; background:var(--ink); color:var(--paper); font-size:clamp(.92rem,1.25vw,1.1rem); font-weight:600; letter-spacing:-.025em; line-height:1; }
     .intro { max-width:610px; font-size:clamp(1.3rem,2.1vw,2rem); line-height:1.12; letter-spacing:-.045em; }
     .section { border-top:1px solid var(--ink); padding-top:14px; margin-top:78px; }
     .section-head { display:grid; grid-template-columns:1fr 2fr; gap:25px; margin-bottom:35px; }
@@ -77,7 +78,8 @@
     .contact a { border-bottom:2px solid var(--ink); }
     .contact a:hover { color:var(--accent); border-color:var(--accent); }
     .small { color:var(--muted); font-size:13px; }
-    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { padding-bottom:34px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:38px 1fr 24px; gap:13px; } .work-text { grid-column:2 / 4; margin-top:-4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
+    @media (prefers-reduced-motion:no-preference) { [data-reveal], [data-reveal-number] { opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); } [data-reveal].is-visible, [data-reveal-number].is-visible { opacity:1; transform:translateY(0); } [data-reveal-number] { transition-delay:.12s; } }
+    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { margin:0 -18px; padding:18px 18px 16px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:38px 1fr 24px; gap:13px; } .work-text { grid-column:2 / 4; margin-top:-4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
   </style>
 </head>
 <body>
@@ -95,7 +97,7 @@
       </div>
     </section>
 
-    <section class="section" id="work">
+    <section class="section" id="work" data-reveal>
       <div class="section-head"><span class="eyebrow">Selected work</span><h2>Advertising you can<br>experience in motion</h2></div>
       <div class="work-list">
         <article class="work"><a href="#formats"><span class="index">01</span><h3 class="work-title">High-impact<br>formats</h3><p class="work-text">Interactive mobile and desktop builds: skins, in-read, page grabbers and banners.</p><span class="arrow">↘</span></a></article>
@@ -106,7 +108,7 @@
       </div>
     </section>
 
-    <section class="section" id="formats">
+    <section class="section" id="formats" data-reveal>
       <div class="section-head"><span class="eyebrow">01 / Live formats</span><p class="section-note">Selected projects from 100+ advertising campaigns. Open a demo in a new window to see each format in its natural environment.</p></div>
       <div class="live">
         <span class="index">Mobile</span>
@@ -133,50 +135,65 @@
       </div>
     </section>
 
-    <section class="section" id="about">
+    <section class="section" id="about" data-reveal>
       <div class="roles"><span class="eyebrow">02 / Experience</span><div class="roles-copy"><p>100+ campaigns for leading brands. My role evolved with the work: motion designer, HTML5 and rich-media developer, then ad operations and performance analysis.</p><div class="brands"><span>Pyaterochka</span><span>Gazprom</span><span>Yandex</span><span>NIVEA</span><span>Procter &amp; Gamble</span><span>Rollton</span><span>Lemana PRO</span><span>Ozon</span></div></div></div>
       <div class="process" id="operations"><span class="eyebrow">Campaign work</span><ul class="process-list"><li>Motion graphics and advertising video</li><li>HTML5 and rich-media production</li><li>Trafficking and campaign delivery</li><li>Inventory control and optimization</li><li>Post-click analytics and attribution</li><li>CRM and call-tracking integration</li></ul></div>
       <div class="process" id="adzone"><span class="eyebrow">Adzone / Publisher development</span><p class="process-copy">Sourced and assessed 1,000+ digital publishers, developed partner relationships, and prepared qualified inventory for programmatic onboarding. Worked with DSP and campaign teams to review supply quality and support campaign launches.</p></div>
     </section>
 
-    <section class="section" id="measurement">
+    <section class="section" id="measurement" data-reveal>
       <div class="section-head"><span class="eyebrow">03 / Measurement</span><h2>Media placement measurement<br>by publisher</h2></div>
       <div class="measurement">
         <div class="measurement-head"><span class="index">Reporting extract</span><p>Archived publisher-level extract: sessions, impressions and clicks. This view shows where delivery is generating traffic and which publishers need optimization.</p></div>
         <div class="metric-strip">
-          <div class="metric"><b>37</b><span>publishers in report</span></div>
-          <div class="metric"><b>53 777</b><span>sessions</span></div>
-          <div class="metric"><b>26 135</b><span>impressions</span></div>
-          <div class="metric"><b>172</b><span>clicks</span></div>
+          <div class="metric"><b data-reveal-number>37</b><span>publishers in report</span></div>
+          <div class="metric"><b data-reveal-number>53 777</b><span>sessions</span></div>
+          <div class="metric"><b data-reveal-number>26 135</b><span>impressions</span></div>
+          <div class="metric"><b data-reveal-number>172</b><span>clicks</span></div>
         </div>
         <p class="source-note">CTR by impressions: 0.66%. Calculated from the supplied archived report.</p>
         <div class="media-grid"><a class="image-link" href="assets/campaign-metrics.png" target="_blank" rel="noreferrer" title="Open full screenshot"><img class="media-image" src="assets/campaign-metrics.png" alt="Archived publisher-level report with sessions, impressions and clicks"></a><div class="media-copy"><p>My scope of work included campaign delivery and monitoring, publisher evaluation, inventory optimization, and connecting post-click events with CRM and call tracking.</p><span class="small">This is the original data extract, not a fabricated dashboard. Click the image to view it in full.</span></div></div>
       </div>
     </section>
 
-    <section class="section" id="ai">
+    <section class="section" id="ai" data-reveal>
       <div class="section-head"><span class="eyebrow">04 / AI production</span><h2>AI as a production tool,<br>not a visual gimmick</h2></div>
       <div class="research"><span class="index">Practice</span><p>Prepared and led a hands-on training session on AI tools for the production team. Demonstrated asset and video generation for advertising creatives, especially for clients without a brand book or source materials.</p></div>
       <div class="process"><span class="eyebrow">What changed</span><ul class="process-list"><li>Fast concepts and variants for approval</li><li>Backgrounds, key visuals and video loops</li><li>Repeatable workflows for production tasks</li><li>Quality control and brand alignment</li></ul></div>
       <div class="media-grid"><a class="image-link" href="assets/comfy-workflow.png" target="_blank" rel="noreferrer" title="Open full workflow"><img class="media-image" src="assets/comfy-workflow.png" alt="ComfyUI workflow for maintaining object consistency across advertising campaigns"></a><div class="media-copy"><p>This ComfyUI workflow generates static assets while maintaining object consistency. Completed images are exported to a working folder and then assembled into an HTML creative.</p><span class="small">My role: process setup, hands-on training and production-team mentoring.</span></div></div>
     </section>
 
-    <section class="section" id="sender">
+    <section class="section" id="sender" data-reveal>
       <div class="section-head"><span class="eyebrow">05 / Internal tool</span><h2>Mail Sender — Adzone</h2></div>
       <div class="research"><span class="index">Desktop app</span><p>Corporate email delivery tool with sender profiles, mail-provider connections, templates, attachments, sending limits, an activity log and IMAP archive saving.</p></div>
       <div class="media-stage"><div class="media-caption"><span>Internal application</span><span>Credentials redacted</span></div><a class="image-link" href="assets/mail-sender.png" target="_blank" rel="noreferrer" title="Open full screenshot"><img class="media-image" src="assets/mail-sender.png" alt="Mail Sender — Adzone corporate email delivery application"></a></div>
     </section>
 
-    <section class="section" id="research">
+    <section class="section" id="research" data-reveal>
       <div class="section-head"><span class="eyebrow">06 / Editorial AI</span><h2>Research<br>& experiments</h2></div>
       <div class="research"><span class="index">Research</span><p>Unpublished research on LLM-based multi-agent systems in political analysis. Alongside it, I explore AI animation, layout automation and illustration generation for editorial projects.</p></div>
       <div class="media-grid"><a class="image-link" href="assets/editorial-assets.png" target="_blank" rel="noreferrer" title="Open full screenshot"><img class="media-image" src="assets/editorial-assets.png" alt="Generated illustrations and book spreads for an editorial project"></a><div class="media-copy"><p>In Higgsfield, I produced visual assets for a book: decorative initials, scenes, characters and spreads in one consistent visual language.</p><span class="small">AI-assisted editorial production / visual consistency across the book.</span></div></div>
     </section>
 
-    <footer id="contact">
+    <footer id="contact" data-reveal>
       <span class="eyebrow">Contact</span>
       <div><div class="contact"><a href="https://t.me/skezziwe" target="_blank" rel="noreferrer">Telegram ↗</a><a href="mailto:mac22026@gmail.com">mac22026@gmail.com</a></div><p class="small">© Artem Belyakov, 2026</p></div>
     </footer>
   </main>
+  <script>
+    (() => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const items = document.querySelectorAll('[data-reveal], [data-reveal-number]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+      items.forEach((item) => observer.observe(item));
+    })();
+  </script>
 </body>
 </html>
