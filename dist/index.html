@@ -67,6 +67,9 @@
     .media-grid .media-image { height:460px; object-fit:cover; object-position:top left; }
     .media-stage .image-link { width:min(100%,720px); }
     .media-stage .media-image { width:auto; max-width:100%; max-height:520px; object-fit:contain; object-position:top left; }
+    #video-workflow .image-link { width:min(100%,1120px); }
+    #video-workflow .media-image { max-height:none; }
+    #video-workflow .media-copy { max-width:720px; padding-top:16px; }
     .media-copy { padding-top:4px; font-size:18px; letter-spacing:-.025em; }
     .media-copy p { margin:0 0 24px; }
     .measurement { margin-top:42px; padding-top:14px; border-top:1px solid var(--rule); }
@@ -85,7 +88,7 @@
     .contact a:hover { color:var(--accent); border-color:var(--accent); }
     .small { color:var(--muted); font-size:13px; }
     @media (prefers-reduced-motion:no-preference) { [data-reveal], [data-reveal-number] { opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); } [data-reveal].is-visible, [data-reveal-number].is-visible { opacity:1; transform:translateY(0); } [data-reveal-number] { transition-delay:.12s; } }
-    @media (max-width:720px) { .page { padding:18px 18px 28px; } .topbar { margin:0 -18px; padding:18px 18px 16px; } .topbar-actions { gap:14px; } .nav { gap:10px; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:1fr 24px; gap:13px; } .work-text { grid-column:auto; margin-top:4px; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
+    @media (max-width:720px) { .page { padding:18px 18px 28px; overflow-x:hidden; } .topbar { margin:0 -18px; padding:18px 18px 16px; align-items:flex-start; flex-wrap:wrap; gap:12px; } .topbar-actions { width:100%; justify-content:space-between; gap:14px; } .nav { gap:10px; flex-wrap:wrap; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:minmax(0,1fr) 28px; gap:13px; } .work-title { grid-column:1; grid-row:1; min-width:0; } .work-text { grid-column:1; grid-row:2; min-width:0; margin-top:4px; } .arrow { grid-column:2; grid-row:1 / span 2; align-self:center; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
   </style>
 </head>
 <body>
@@ -170,6 +173,7 @@
       <div class="research"><span class="index">Practice</span><p>Prepared and led a hands-on training session on AI tools for the production team. Demonstrated asset and video generation for advertising creatives, especially for clients without a brand book or source materials.</p></div>
       <div class="process"><span class="eyebrow">What changed</span><ul class="process-list"><li>Fast concepts and variants for approval</li><li>Backgrounds, key visuals and video loops</li><li>Repeatable workflows for production tasks</li><li>Quality control and brand alignment</li></ul></div>
       <div class="media-grid"><a class="image-link" href="assets/comfy-workflow.png" target="_blank" rel="noreferrer" title="Open full workflow"><img class="media-image" src="assets/comfy-workflow.png" alt="ComfyUI workflow for maintaining object consistency across advertising campaigns"></a><div class="media-copy"><p>This ComfyUI workflow generates static assets while maintaining object consistency. Completed images are exported to a working folder and then assembled into an HTML creative.</p><span class="small">My role: process setup, hands-on training and production-team mentoring.</span></div></div>
+      <div class="media-stage" id="video-workflow"><div class="media-caption"><span>AI video production workflow</span><span>Conceptual reconstruction</span></div><a class="image-link" href="assets/make-video-workflow.png" target="_blank" rel="noreferrer" title="Open full workflow"><img class="media-image" src="assets/make-video-workflow.png" alt="Workflow reconstruction for automated AI video production"></a><div class="media-copy"><p>Automation blueprint for producing a video from a spreadsheet title: structured script, visual quality control, voiceover, soundtrack, asset handoff and final render.</p><span class="small">Reconstructed from a production workflow; no account data or credentials are shown.</span></div></div>
     </section>
 
     <section class="section" id="sender" data-reveal>
@@ -246,6 +250,9 @@
           '#ai .process-list li': ['Fast concepts and variants for approval', 'Backgrounds, key visuals and video loops', 'Repeatable workflows for production tasks', 'Quality control and brand alignment'],
           '#ai .media-copy p': 'This ComfyUI workflow generates static assets while maintaining object consistency. Completed images are exported to a working folder and then assembled into an HTML creative.',
           '#ai .media-copy .small': 'My role: process setup, hands-on training and production-team mentoring.',
+          '#video-workflow .media-caption span': ['AI video production workflow', 'Conceptual reconstruction'],
+          '#video-workflow .media-copy p': 'Automation blueprint for producing a video from a spreadsheet title: structured script, visual quality control, voiceover, soundtrack, asset handoff and final render.',
+          '#video-workflow .media-copy .small': 'Reconstructed from a production workflow; no account data or credentials are shown.',
           '#sender .section-head .eyebrow': 'Internal tool',
           '#sender .research .index': 'Desktop app',
           '#sender .research p': 'Corporate email delivery tool with sender profiles, mail-provider connections, templates, attachments, sending limits, an activity log and IMAP archive saving.',
@@ -298,6 +305,9 @@
           '#ai .process-list li': ['Быстрые концепты и варианты для согласования', 'Фоны, key visuals и видео-лупы', 'Повторяемые workflow для production-задач', 'Контроль качества и соответствия бренду'],
           '#ai .media-copy p': 'Этот workflow в ComfyUI создаёт статику с контролем консистентности объектов. Готовые изображения экспортируются в рабочую папку, откуда затем собирается HTML-креатив.',
           '#ai .media-copy .small': 'Моя роль: настройка процесса, практическое обучение и наставничество production-команды.',
+          '#video-workflow .media-caption span': ['Workflow для производства AI-видео', 'Концептуальная реконструкция'],
+          '#video-workflow .media-copy p': 'Реконструкция автоматизации производства роликов: название из таблицы превращается в структурированный сценарий, визуалы, озвучку, саундтрек, набор ассетов и финальный рендер.',
+          '#video-workflow .media-copy .small': 'Сценарий восстановлен по production-практике; данные аккаунтов и учётные данные не используются.',
           '#sender .section-head .eyebrow': 'Внутренний инструмент',
           '#sender .research .index': 'Десктоп-приложение',
           '#sender .research p': 'Корпоративное приложение для email-рассылок: профили отправителей, подключение к почтовым провайдерам, шаблоны, вложения, лимиты, журнал отправки и сохранение писем в IMAP.',
