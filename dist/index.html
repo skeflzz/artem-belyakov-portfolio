@@ -26,9 +26,10 @@
     h1 { margin:0; max-width:1130px; font-size:clamp(3.4rem, 8.3vw, 8.5rem); font-weight:400; line-height:.93; letter-spacing:-.075em; }
     .hero-bottom { display:grid; grid-template-columns:1fr 2fr; gap:25px; align-items:end; padding-top:62px; }
     .index, .eyebrow { color:#51514d; font-size:14px; letter-spacing:.01em; }
-    .section > .section-head .eyebrow, .section > .roles > .eyebrow, footer > .eyebrow { display:inline-flex; align-items:center; width:fit-content; padding:9px 14px 10px; border-radius:8px; background:var(--ink); color:var(--paper); font-size:clamp(.92rem,1.25vw,1.1rem); font-weight:600; letter-spacing:-.025em; line-height:1; }
+    .section > .section-head .eyebrow, .section > .roles > .eyebrow, footer > .eyebrow, .case-index > .eyebrow { display:inline-flex; align-items:center; width:fit-content; padding:10px 15px 11px; border-radius:8px; background:var(--ink); color:var(--paper); font-size:clamp(.95rem,1.3vw,1.13rem); font-weight:600; letter-spacing:-.025em; line-height:1; }
     .intro { max-width:610px; font-size:clamp(1.3rem,2.1vw,2rem); line-height:1.12; letter-spacing:-.045em; }
-    .section { border-top:1px solid var(--ink); padding-top:14px; margin-top:78px; }
+    .section { position:relative; border-top:1px solid var(--ink); padding-top:22px; margin-top:112px; scroll-margin-top:84px; }
+    .section::before { content:""; position:absolute; top:-2px; left:0; width:78px; height:3px; background:var(--ink); }
     .section-head { display:grid; grid-template-columns:1fr 2fr; gap:25px; margin-bottom:35px; }
     h2 { margin:0; font-size:clamp(1.75rem,3vw,3.2rem); font-weight:400; letter-spacing:-.055em; line-height:.96; }
     .section-note { margin:0; max-width:650px; font-size:18px; letter-spacing:-.025em; }
@@ -39,6 +40,17 @@
     .work-text { margin:4px 0 0; max-width:510px; font-size:15px; letter-spacing:-.015em; }
     .arrow { font-size:25px; text-align:right; line-height:.95; }
     .work a { display:contents; }
+    .case-index { position:relative; display:grid; grid-template-columns:1fr 2fr; gap:25px; margin-top:22px; padding:22px 0 4px; border-top:1px solid var(--ink); }
+    .case-index::before { content:""; position:absolute; top:-2px; left:0; width:78px; height:3px; background:var(--ink); }
+    .case-index-note { margin:2px 0 0; color:var(--muted); font-size:15px; letter-spacing:-.015em; }
+    .case-index-list { border-top:1px solid var(--rule); }
+    .case-index-item { display:grid; grid-template-columns:118px minmax(0,1fr) minmax(150px,.8fr) 26px; gap:14px; align-items:center; min-height:64px; padding:11px 0; border-bottom:1px solid var(--rule); }
+    .case-index-item:hover { color:var(--accent); }
+    .case-index-item .tag { width:fit-content; padding:4px 7px 5px; border-radius:4px; background:var(--ink); color:var(--paper); font-size:11px; font-weight:700; letter-spacing:.03em; text-transform:uppercase; }
+    .case-index-item:not(.featured) .tag { background:transparent; color:var(--muted); padding-left:0; font-weight:400; text-transform:none; }
+    .case-index-title { font-size:18px; font-weight:600; letter-spacing:-.03em; }
+    .case-index-detail { color:var(--muted); font-size:14px; letter-spacing:-.015em; }
+    .case-index-arrow { font-size:20px; text-align:right; }
     .live { margin:48px 0 0; display:grid; grid-template-columns:1fr 2fr; gap:25px; }
     .live-list { border-top:1px solid var(--rule); }
     .live-item { display:flex; justify-content:space-between; gap:20px; border-bottom:1px solid var(--rule); padding:11px 0; font-size:16px; }
@@ -59,7 +71,11 @@
     .research p { margin:0; max-width:650px; font-size:21px; line-height:1.17; letter-spacing:-.04em; }
     .media-stage { margin:40px 0 0; border-top:1px solid var(--rule); padding-top:14px; }
     .media-caption { display:flex; justify-content:space-between; gap:18px; padding:0 0 12px; font-size:13px; color:var(--muted); }
+    .video-shell { position:relative; overflow:hidden; border-radius:10px; background:#111; }
     .motion-video { display:block; width:100%; max-height:78vh; background:#111; object-fit:contain; border:1px solid rgba(17,17,17,.22); border-radius:10px; }
+    .reel-cover { position:absolute; top:18px; left:18px; z-index:1; display:flex; flex-direction:column; gap:3px; color:#fff; text-shadow:0 1px 12px rgba(0,0,0,.75); pointer-events:none; }
+    .reel-cover span:first-child { font-size:clamp(1.25rem,2.4vw,2.4rem); line-height:.95; letter-spacing:-.06em; }
+    .reel-cover span:last-child { font-size:13px; color:rgba(255,255,255,.82); }
     .media-image { display:block; width:100%; height:auto; border:1px solid rgba(17,17,17,.22); border-radius:10px; box-shadow:0 1px 0 rgba(17,17,17,.04), 0 14px 35px rgba(17,17,17,.045); }
     .media-grid { display:grid; grid-template-columns:1.08fr .92fr; gap:25px; align-items:start; margin-top:36px; }
     .image-link { display:block; width:100%; align-self:start; }
@@ -88,7 +104,7 @@
     .contact a:hover { color:var(--accent); border-color:var(--accent); }
     .small { color:var(--muted); font-size:13px; }
     @media (prefers-reduced-motion:no-preference) { [data-reveal], [data-reveal-number] { opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); } [data-reveal].is-visible, [data-reveal-number].is-visible { opacity:1; transform:translateY(0); } [data-reveal-number] { transition-delay:.12s; } }
-    @media (max-width:720px) { .page { padding:18px 18px 28px; overflow-x:hidden; } .topbar { margin:0 -18px; padding:18px 18px 16px; align-items:flex-start; flex-wrap:wrap; gap:12px; } .topbar-actions { width:100%; justify-content:space-between; gap:14px; } .nav { gap:10px; flex-wrap:wrap; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:62px; } .work { grid-template-columns:minmax(0,1fr) 28px; gap:13px; } .work-title { grid-column:1; grid-row:1; min-width:0; } .work-text { grid-column:1; grid-row:2; min-width:0; margin-top:4px; } .arrow { grid-column:2; grid-row:1 / span 2; align-self:center; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
+    @media (max-width:720px) { .page { padding:18px 18px 28px; overflow-x:hidden; } .topbar { margin:0 -18px; padding:18px 18px 16px; align-items:flex-start; flex-wrap:wrap; gap:12px; } .topbar-actions { width:100%; justify-content:space-between; gap:14px; } .nav { gap:10px; flex-wrap:wrap; } .hero { min-height:70vh; } .hero-bottom, .section-head, .live, .roles, .process, .research, footer, .media-grid, .measurement-head, .case-index { grid-template-columns:1fr; gap:14px; } .hero-bottom { padding-top:42px; } .section { margin-top:82px; padding-top:18px; } .case-index { margin-top:14px; padding-top:18px; } .case-index-item { grid-template-columns:88px minmax(0,1fr) 20px; gap:10px; min-height:58px; } .case-index-detail { display:none; } .work { grid-template-columns:minmax(0,1fr) 28px; gap:13px; } .work-title { grid-column:1; grid-row:1; min-width:0; } .work-text { grid-column:1; grid-row:2; min-width:0; margin-top:4px; } .arrow { grid-column:2; grid-row:1 / span 2; align-self:center; } .work:hover { padding-left:0; padding-right:0; background:transparent; } .live { margin-top:30px; } .live-item { font-size:15px; } .brands { grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 14px; } .metric-strip { grid-template-columns:repeat(2,1fr); } .metric:nth-child(2) { border-right:0; } .metric:nth-child(n+3) { border-top:1px solid var(--rule); } .metric:nth-child(3) { padding-left:0; } .media-stage { margin-top:28px; } .media-caption { font-size:12px; } .motion-video { max-height:none; border-radius:8px; } .reel-cover { top:12px; left:12px; } .media-image { border-radius:8px; } .media-grid .media-image { height:340px; } .media-stage .image-link { width:100%; } .media-stage .media-image { max-height:430px; } footer { margin-top:88px; } }
   </style>
 </head>
 <body>
@@ -102,9 +118,21 @@
       <h1>Artem<br>Belyakov</h1>
       <div class="hero-bottom">
         <span class="index">Portfolio / 2026</span>
-        <p class="intro">Interactive advertising, AdTech and AI automation. From motion design and HTML5 banners to campaign delivery, measurement and optimization.</p>
+        <p class="intro">Creative technologist for interactive advertising, AdTech and AI production. I build motion, HTML5 formats and production workflows that launch and measure campaigns.</p>
       </div>
     </section>
+
+    <nav class="case-index" aria-label="Selected case index">
+      <div><span class="eyebrow">Selected case index</span><p class="case-index-note">Start with the featured work, then explore the full portfolio.</p></div>
+      <div class="case-index-list">
+        <a class="case-index-item featured" href="#formats"><span class="tag">Featured</span><span class="case-index-title">Interactive formats</span><span class="case-index-detail">Xiaomi, Yandex Go, NIVEA</span><span class="case-index-arrow">↘</span></a>
+        <a class="case-index-item featured" href="#measurement"><span class="tag">Featured</span><span class="case-index-title">Campaign operations</span><span class="case-index-detail">Delivery, measurement, attribution</span><span class="case-index-arrow">↘</span></a>
+        <a class="case-index-item featured" href="#ai"><span class="tag">Featured</span><span class="case-index-title">AI production</span><span class="case-index-detail">ComfyUI, automation, mentoring</span><span class="case-index-arrow">↘</span></a>
+        <a class="case-index-item" href="#motion-reel"><span class="tag">Also</span><span class="case-index-title">Motion design reel</span><span class="case-index-detail">Campaign video production</span><span class="case-index-arrow">↘</span></a>
+        <a class="case-index-item" href="#sender"><span class="tag">Also</span><span class="case-index-title">Internal tool</span><span class="case-index-detail">Mail Sender — Adzone</span><span class="case-index-arrow">↘</span></a>
+        <a class="case-index-item" href="#research"><span class="tag">Also</span><span class="case-index-title">Editorial AI</span><span class="case-index-detail">Book illustration systems</span><span class="case-index-arrow">↘</span></a>
+      </div>
+    </nav>
 
     <section class="section" id="work" data-reveal>
       <div class="section-head"><span class="eyebrow">Cases</span><h2>Advertising you can<br>experience in motion</h2></div>
@@ -146,10 +174,13 @@
       </div>
       <div class="media-stage" id="motion-reel">
         <div class="media-caption"><span>Motion design reel</span><span>Video / selected work</span></div>
-        <video class="motion-video" controls muted loop playsinline preload="metadata" aria-label="Motion design reel Artem Belyakov">
-          <source src="assets/motion-reel.mp4" type="video/mp4">
-          Your browser does not support video playback.
-        </video>
+        <div class="video-shell">
+          <div class="reel-cover" aria-hidden="true"><span>Motion Reel</span><span>Press play to watch</span></div>
+          <video class="motion-video" controls muted loop playsinline preload="auto" aria-label="Motion design reel Artem Belyakov">
+            <source src="assets/motion-reel.mp4" type="video/mp4">
+            Your browser does not support video playback.
+          </video>
+        </div>
       </div>
     </section>
 
@@ -212,7 +243,12 @@
         en: {
           '.nav a': ['Cases', 'Experience', 'Contact'],
           '.hero-bottom .index': 'Portfolio / 2026',
-          '.intro': 'Interactive advertising, AdTech and AI automation. From motion design and HTML5 banners to campaign delivery, measurement and optimization.',
+          '.intro': 'Creative technologist for interactive advertising, AdTech and AI production. I build motion, HTML5 formats and production workflows that launch and measure campaigns.',
+          '.case-index > div > .eyebrow': 'Selected case index',
+          '.case-index-note': 'Start with the featured work, then explore the full portfolio.',
+          '.case-index-title': ['Interactive formats', 'Campaign operations', 'AI production', 'Motion design reel', 'Internal tool', 'Editorial AI'],
+          '.case-index-detail': ['Xiaomi, Yandex Go, NIVEA', 'Delivery, measurement, attribution', 'ComfyUI, automation, mentoring', 'Campaign video production', 'Mail Sender — Adzone', 'Book illustration systems'],
+          '.case-index-item .tag': ['Featured', 'Featured', 'Featured', 'Also', 'Also', 'Also'],
           '#work .section-head .eyebrow': 'Cases',
           '#work .section-head h2': 'Advertising you can<br>experience in motion',
           '#work .work-title': ['High-impact<br>formats', 'Motion design<br>&amp; promo reels', 'Ad operations<br>&amp; measurement', 'AI creative<br>workflow', 'Mail Sender<br>— Adzone', 'Book production<br>with AI'],
@@ -234,6 +270,7 @@
           '#formats .live > .index': ['Mobile', 'Desktop'],
           '#formats .format': 'Live demo ↗',
           '#motion-reel .media-caption span': ['Motion design reel', 'Video / selected work'],
+          '.reel-cover span': ['Motion Reel', 'Press play to watch'],
           '#measurement .section-head .eyebrow': 'Measurement',
           '#measurement .section-head h2': 'Media placement measurement<br>by publisher',
           '#measurement .measurement-head .index': 'Reporting extract',
@@ -267,7 +304,12 @@
         ru: {
           '.nav a': ['Кейсы', 'Опыт', 'Контакты'],
           '.hero-bottom .index': 'Портфолио / 2026',
-          '.intro': 'Интерактивная реклама, AdTech и AI-автоматизация. От моушн-дизайна и HTML5-баннеров до запуска, измерения и оптимизации кампаний.',
+          '.intro': 'Creative technologist в интерактивной рекламе, AdTech и AI-production. Создаю моушн, HTML5-форматы и production-workflow для запуска и измерения рекламных кампаний.',
+          '.case-index > div > .eyebrow': 'Навигатор по кейсам',
+          '.case-index-note': 'Начните с ключевых работ, затем изучите всё портфолио.',
+          '.case-index-title': ['Интерактивные форматы', 'Запуск и измерение кампаний', 'AI-production', 'Ролик по моушн-дизайну', 'Внутренний инструмент', 'AI в издательских проектах'],
+          '.case-index-detail': ['Xiaomi, Yandex Go, NIVEA', 'Запуск, измерение, атрибуция', 'ComfyUI, автоматизация, наставничество', 'Производство рекламных роликов', 'Mail Sender — Adzone', 'Системы иллюстраций для книг'],
+          '.case-index-item .tag': ['Главное', 'Главное', 'Главное', 'Дополнительно', 'Дополнительно', 'Дополнительно'],
           '#work .section-head .eyebrow': 'Кейсы',
           '#work .section-head h2': 'Реклама, которую можно<br>увидеть в работе',
           '#work .work-title': ['Высокоэффективные<br>форматы', 'Моушн-дизайн<br>и промо-ролики', 'Ad operations<br>и измерение', 'AI-креативные<br>workflow', 'Mail Sender<br>— Adzone', 'Создание книг<br>с помощью AI'],
@@ -289,6 +331,7 @@
           '#formats .live > .index': ['Мобильные', 'Десктопные'],
           '#formats .format': 'Демо ↗',
           '#motion-reel .media-caption span': ['Ролик по моушн-дизайну', 'Видео / избранная работа'],
+          '.reel-cover span': ['Моушн-ролик', 'Нажмите play для просмотра'],
           '#measurement .section-head .eyebrow': 'Измерение',
           '#measurement .section-head h2': 'Измерение размещений<br>по площадкам',
           '#measurement .measurement-head .index': 'Выгрузка отчёта',
