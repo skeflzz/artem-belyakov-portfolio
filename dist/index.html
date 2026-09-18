@@ -190,7 +190,6 @@
     document.addEventListener('click', (event) => {
       const link = event.target.closest('a[href^="mailto:"]');
       if (!link) return;
-      event.preventDefault();
       const email = link.getAttribute('href').replace(/^mailto:/i, '');
       navigator.clipboard?.writeText(email).catch(() => {});
       link.setAttribute('title', 'Email copied');
